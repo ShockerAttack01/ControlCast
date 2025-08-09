@@ -24,7 +24,8 @@ def show_notification(message):
     log(f"[NOTIFICATION] Message: '{message}'")
     root = tk.Tk()
     root.withdraw()  # Hide the main window
-    messagebox.showinfo("ControlCast Notification", message)
+    root.attributes('-topmost', True)  # Make sure the window is on top
+    messagebox.showinfo("ControlCast Notification", message, master=root)
     root.destroy()
     log("[NOTIFICATION] Notification window closed.")
 
